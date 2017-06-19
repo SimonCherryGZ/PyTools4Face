@@ -154,11 +154,11 @@ def remap_uv_vertices(vertices, index):
 
 if __name__ == '__main__':
 
-    path = 'input/texture/'
-    name = '20130821040137899'
+    # name = '20130821040137899'
+    name = '20130821040612603'
     fmt = '.jpg'
-    img_name = path + name + fmt
-    text_name = path + name + '.txt'
+    img_name = 'input/texture/' + name + fmt
+    text_name = 'output/texture/' + name + '.txt'
 
     # 读取人脸图片
     image = read_image(img_name)
@@ -210,14 +210,14 @@ if __name__ == '__main__':
         cv2.putText(output, str(index), (x, y), fontface, fontscale, fontcolor)
 
     # 描绘人脸轮廓
-    # pts = np.array([
-    #     points[0], points[1], points[4], points[6],
-    #     points[8], points[10], points[12], points[15],
-    #     points[16], points[25], points[23], points[20],
-    #     points[18]
-    # ], np.int32)
-    # pts = pts.reshape((-1, 1, 2))
-    # image = cv2.polylines(image, [pts], True, (0, 255, 0))
+    pts = np.array([
+        points[0], points[1], points[4], points[6],
+        points[8], points[10], points[12], points[15],
+        points[16], points[25], points[23], points[20],
+        points[18]
+    ], np.int32)
+    pts = pts.reshape((-1, 1, 2))
+    output = cv2.polylines(output, [pts], True, (0, 255, 0))
 
     cv2.namedWindow("Image")
     cv2.imshow("Image", output)
