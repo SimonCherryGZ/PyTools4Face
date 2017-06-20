@@ -59,10 +59,10 @@ def remap_uv_vertices(vertices, index):
     elif index == 6:
         return vertices[48]
     elif index == 7:
-        (x5, y5) = vertices[5]
+        (x7, y7) = vertices[7]
         (x6, y6) = vertices[6]
         (x8, y8) = vertices[8]
-        return x8, (y5 + y6) / 2
+        return x8, (y7 + y6) / 2
     elif index == 8:
         return vertices[57]
     elif index == 9:
@@ -155,8 +155,8 @@ def remap_uv_vertices(vertices, index):
 if __name__ == '__main__':
 
     # name = '20130821040137899'
-    name = '20130821040612603'
-    fmt = '.jpg'
+    name = 'obama2'
+    fmt = '.png'
     img_name = 'input/texture/' + name + fmt
     text_name = 'output/texture/' + name + '.txt'
 

@@ -66,8 +66,8 @@ def get_map_index(x):
 if __name__ == '__main__':
 
     # name = '20130821040137899'
-    name = '20130821040612603'
-    image_path = 'output/texture/' + name + '.jpg'
+    name = 'obama2'
+    image_path = 'output/texture/' + name + '.png'
     points_path = 'output/texture/' + name + '.txt'
     z_path = 'input/texture/z_axis.txt'
     tmp_path = 'output/texture/' + name + '_t.txt'
@@ -139,8 +139,12 @@ if __name__ == '__main__':
     np.savetxt(tmp_path, tmp, fmt="%d")
 
     (chin_x, chin_y) = points[8]
+
+    (x0, y0) = tmp[0]
+    scale = (((x0 - chin_x) / float(30)) / -2.15)
+
     for index in range(len(tmp)):
-        z = z_axis[index]
+        z = z_axis[index] * scale
         (x, y) = tmp[index]
         x = (x - chin_x) / float(30)
         y = (y - chin_y) / float(-30)
